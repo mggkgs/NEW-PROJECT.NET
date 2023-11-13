@@ -1,30 +1,46 @@
-<<<<<<< HEAD
-﻿// See ationhttps://aka.ms/new-console-template for more inform
-Console.WriteLine("Hello, World!");
-using System;
+ using System;
 
-namespace HelloWorld
-{
-  class Program
-  {
-    static void Main(string[] args)
+namespace PackageExpress
+{ class Program
     {
-      Console.WriteLine("Hello World!");    
-    }
-  }
-=======
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-using System;
+        static void Main(string[] args)
+ {
+            Console.WriteLine("Welcome to Package Express. Please follow the instructions below.");
+ // Get the package weight from the user
+            Console.Write("Please enter the package weight: ");
+            double weight = Convert.ToDouble(Console.ReadLine());
 
-namespace HelloWorld
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      Console.WriteLine("Hello World!");    
-    }
-  }
->>>>>>> 605ba266ef029faa8ee0b4a25bc0d1a6781b5e29
-}
+            // Check if the weight is too heavy
+            if (weight > 50)
+            {
+                Console.WriteLine("Package too heavy to be shipped via Package Express. Have a good day.");
+            }
+            else
+            {
+                // Get the package dimensions from the user
+                Console.Write("Please enter the package width: ");
+                double width = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Please enter the package height: ");
+                double height = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Please enter the package length: ");
+                double length = Convert.ToDouble(Console.ReadLine());
+
+                // Calculate the total dimensions
+                double totalDimensions = width + height + length;
+
+                // Check if the dimensions are too big
+                if (totalDimensions > 50)
+                {
+                    Console.WriteLine("Package too big to be shipped via Package Express.");
+                }
+                else
+                {
+                    // Calculate the quote
+                    double quote = (width * height * length * weight) / 100;
+
+                    // Display the quote
+                    Console.WriteLine($"Your estimated total for shipping this package is: ${quote:F2}");
+                    Console.WriteLine("Thank you!");
+            
